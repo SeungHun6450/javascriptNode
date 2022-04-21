@@ -66,14 +66,14 @@ const mapVsFilter = numbers.map(number => {
   return number < 3; 
 })
 // 간결한 함수 버전
-// const c = numbers.map(number => number < 3 );
+// const mapVsFilter = numbers.map(number => number < 3 );
 console.log(mapVsFilter); // [true, true, false, false]
 
 const filter = numbers.filter(number => {
   return number < 3;
 })  
 // 간결한 함수 버전
-// const d = numbers.filter(number => number < 3 );
+// const filter = numbers.filter(number => number < 3 );
 console.log(filter); // [1, 2]
 
 
