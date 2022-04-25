@@ -208,7 +208,145 @@ switch (event.key) {
 ```
 
 ## for
+for(시작;종료;변화){
+
+}
 
 ## for of
 
+배열 반복 시 사용
+
+```js
+const users = [
+{ name: 'Hun', age: 27},
+{ name: 'Hyun', age: 18},
+{ name: 'Jeung', age: 2}
+]
+
+for (const user of users) {
+  console.log(user);
+}
+
+for (let i = 0; users.length; i += 1) {
+  console.log(users[i]);
+}
+
+```
 ## for in
+
+객체 반복 시 사용
+```js
+const hun = {
+  name: 'Hun',
+  age: 27,
+  isValid: true
+}
+
+for (const key in hun) {
+  console.lof(hun[key])
+}
+```
+
+## while
+조건이 falsy면 0번 실행한다.
+```js
+let i = 0;  // 시작
+while (i<3) { // 종료
+  console.log(i)
+  i += 1; //  변화
+}
+```
+## do while
+조건이 falsy여도 한 번 실행한다.
+```js
+let j = 0;  // 시작
+do {
+  console.log(j);
+  j += 1  // 변화
+} while (false) // 종료
+
+```
+
+# 표준 내장 객체(메소드)
+
+## 문자
+slice
+split 
+includes()
+indexOf()
+
+```js
+  
+```
+
+## 숫자
+1. isNaN()
+1. Nuber.isNaN()
+
+1. parseInt()
+1. Number.parseInt()
+
+1. parseFloat()
+1. Number.parseFloat()
+
+## Math
+every(): ()안이 truthy여야 통과, 모든 요소가 주어진 판별 함수를 통과(truthy)하는지 테스트하는 메소드
+```js   
+// callback 사용(화살표함수, return있음, 요소 갯수만큼 반복)
+const arr = [1, 2, 3, 4];
+console.log(  // true
+  arr.every(item => item < 5>)  
+)
+```
+
+filter(): 통과한 값들면 새로운 배열로 만듬(기존 배열은 존재)
+find():
+```js
+const users = [
+  {name: 'Hun', age: 27},
+  {name: 'Hero', age: 85}
+]
+const foundUser = users.find(user => user.name {
+  user.name === 'Hun'
+}
+console.log(foundUser);
+```
+findIndex(): 맨 처음 찾은 녀석의 "index" 번호를 반환
+join(): 배열의 모든 요소를 연결해 하나의 "문자열"로 만든다.
+map(): 배열 내의 모든 요소에 반환된 데이터로 새로운 배열을 만들어 준다.
+
+```js
+const arr = ['AR', '패션','스포츠', '인테리어'];
+console.log(
+  arr.map(item => {
+    return {
+      name: item
+    }
+  });
+
+const arr = [1, 2, 3, 4];
+console.log(
+  arr.map((item,index) => {
+    console.log(index)  // 0 1 2 3
+    return item * 2;    // [2, 3, 6, 8]
+  })
+)
+```
+pop(): 배열의 마지막 요소를 제거한다. 그 제거된 요소를 반환한다. 
+원본이 수정된다.
+shift(): pop과 반대로 맨 앞의 요소를 제거하고 그 제거된 요소를 반환한다.
+원본이 수정된다.
+
+push(): 배열의 끝에 하나 "이상"의 요소를 추가하고 배열의 "새로운 길이"를 반환한다.
+unshift(): 배열의 앞에 하나 "이상"의 요소를 추가하고 배열의 "새로운 길이"를 반환한다.
+
+```js
+const arr1 = [1, 2, 3, 4];
+const arr2 = [1, 2, 3, 4];
+console.log(
+  arr1.push(99, 7, 1421);  // 7
+  arr2.unshift(99, 7, 1421); // 7
+)
+console.log(arr1)  // [1, 2, 3, 4, 99, 7, 1421]
+console.log(arr2)  // [99, 7, 1421, 1, 2, 3, 4]
+```
