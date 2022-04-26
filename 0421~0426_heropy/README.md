@@ -350,3 +350,93 @@ console.log(
 console.log(arr1)  // [1, 2, 3, 4, 99, 7, 1421]
 console.log(arr2)  // [99, 7, 1421, 1, 2, 3, 4]
 ```
+
+reduce(): 
+```js
+const arr = [1, 2, 3, 4];
+// reduce(accumlator, currentValue)
+const sum = arr.reduce((acc, cur) => {  // 2. cur = 1부터 시작
+  //callback함수
+  return acc + cur  // 3. 값이 acc로 넘어감
+}, 0);  // 뒤에 숫자는 초기 값, 1. acc로 들어감
+
+console.log(sum); // 10
+
+```
+reverse(): 배열의 순서를 뒤집는(반전) 역할
+
+
+# 구조 분해 할당
+
+## 객체
+```js
+const user = {
+  name: 'Hun',
+  age: 27,
+  isValid: true
+}
+
+// const e = user.name;
+// const a = user.age;
+// const i = user.isValid;
+
+const {
+  name: e,
+  age: a,
+  isValid: i,
+  email: x= 'the'
+} = user
+
+console.log(e, a, i, x)
+
+const {
+  name: e,
+  ...rest
+}
+
+console.log(e, rest)  // rest는 나머지 전부 꺼내서 객체 데이터 형태로 꺼내옴
+
+const user = {
+  name: 'Hun',
+  age: 27
+}
+
+for (const [k, v] of Object.entries(user)) {
+  console.log(k, y)
+}
+
+
+```
+
+## 배열
+나열되어 있기 때문에 순서를 맞춰라!
+```js
+const aee = [1, 2, 3];
+const [x, y, z] = arr
+console.log(x, y, z)  // 1 2 3
+
+const [,,,z] = arr2
+console.log(z)  // 3
+
+
+// 값을 맞교환(순서만)바꿀 때 유용하게 사용 가능
+let a = 1
+let b = 3
+
+// const backup = a
+// a = b
+// b = backup
+
+[b, a] = [a, b];
+console.log(a)  // 3
+console.log(b)  // 1
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8]
+const [x, y, ...r] = arr
+console.log(x, y, r)
+
+```
+
+## 데이터의 불변성과 가변성
+
+참조형 : 객체 배열 함수
