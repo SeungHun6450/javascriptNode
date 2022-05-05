@@ -1,16 +1,12 @@
 # class (2250참고- prototype과instance static class 구분)
 - 구조를 만들어놓고 인스턴스라고 불리우는 객체 데이터를 찍어낼 수 있다.
+- 생성자 함수로만 사용하라고 정의하기 위해 파스칼케이스로 작성 한다.
 - 내부 메소드는 한 번만 만들어진다.
+- class는 "틀"이다. 
 ```js
-// 생성자 함수로만 사용하라고 정의하기 위해 앞을 대문자로 사용(파스칼케이스)
-// 생성자 함수의 장점: 구조를 만들어놓고 인스턴스라고 불리우는 객체 데이터를 찍어낼 수 있다.
-
 // 1.
 function Hello() {
   this.msg = 'Hello'
-}
-Hello.prototype.getMsg = function () {
-  return this.msg
 }
 
 // this는 사용되는 곳마다 다름
@@ -37,10 +33,12 @@ const res4 = {
   }
 }
 console.log(res4.getMsg())  // World
-console.log(res3.getMsg === res4.getMsg)  // false, 똑같이 생긴 참조형이지만 주소가 다름
+console.log(res3.getMsg === res4.getMsg)  // false, 똑같이 생긴 참조형이지만 주소가 다르다.
 
 // 2.
-// class형태로 만들면 재활용이 가능하다.
+// 객체데이터를 생성자함수(class)형태로 만들게 되면 재활용이 가능하다.
+// 객체를 리티럴 방식으로 똑같은 구조를 여러개를 만들어 사용하면 객체를 만드는 만큼 메모리가 낭비가 된다
+// 
 function Hello() {
   this.msg = 'Hello'
 }
@@ -56,7 +54,9 @@ console.log(res2) // hello {msg: 'Hello!'} Prototype안에 getMsg존재
 console.log(res1.getMsg === res2.getMsg)  // true, 같은 메모리에 있는 함수 데이터를 같은 주소로 바라보고 있다.
 
 // 3. 
-// class는 prototype으로 돌아간다
+// class 문법은 prototype으로 돌아간다. 지금은 새로운 class문법이 나와 최신 문법에 맞춰 사용한다.
+// class와 prototype은 선언부만 다르고 사용법은 똑같다.
+// class는 틀이고 데이터는 붕어빵 종류이다.
 function Hello(str) {
   this.msg = str
 }
@@ -100,7 +100,7 @@ console.log(res2) // {msg: '슈크림'}
 console.log(res1.getMsg === res2.getMsg)  // true
 
 
-// 6. 
+// 6.class 사용 예시
 
 // html
 <div class="font1">Hello</div>
