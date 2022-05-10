@@ -193,3 +193,63 @@ button.addEventListener('click', () => {
 
 
 # Scss
+## 데이터
+- Numbers: 1, .82, 20px, 2em
+- Strings: 색상 제외 모든 문자 
+- Colors: red, blue, #fff000...
+- Booleans: true, false
+- Nulls: null
+- Lists: (apple, banana,corange), apple orange / 배열데이터(데이터가 나열)
+- Maps: (apple: a, orange: o, banana: b) / 객체데이터(key: value 형태)
+
+## 중첩
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item active">2</div>
+</div>
+
+<div class="item">3</div>
+```
+```scss
+.container {
+  border: 4px solid;
+  .item {
+    color: red;
+  }
+}
+```
+- 상위 선택자 참조
+자기가 있는 중괄호 범위의 그 선택자를 참조한다.
+```scss
+.container {
+  border: 4px solid;
+  > .item {
+    color: red;
+    &.active {
+      color: blue;
+    }
+  }
+}
+```
+
+## !default
+!default 플래그는 기본 값을 가져와서 쓸 때 사용한다.
+```scss
+$color-primary: red;
+.box {
+  $color-primary: blue !default // red
+}
+```
+## 문자보간 {}
+`{$this}`
+
+## 연산자
+
++, -, *, /(math.div(,))
+
+## 재활용 
+@mixin
+
+## 조건 반복
+if, for
